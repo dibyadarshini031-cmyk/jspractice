@@ -1,13 +1,10 @@
-//sum function
-function sum(a, b) {
-    return a + b;
+function countvowels(str) {
+    let count = 0;
+    for (const char of str){
+        if (char === "a" || char === "e" || char === "i" || char === "o" || char === "u"){
+            count++;
+        }
+    }
+    console.log(count);
 }
-
-const arrowsum = (a, b) => {
-    console.log(a + b);
-};
-
-//multiplication function
-function mul(a, b) {
-    return a * b
-}
+return count;
