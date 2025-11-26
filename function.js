@@ -6,5 +6,5 @@ function countvowels(str) {
         }
     }
     console.log(count);
+    return count;
 }
-return count;

@@ -1,5 +1,5 @@
 let arr = ["pune", "delhi", "mumbai"];
 
-arr.forEach(val) => {
-    console.log(val.touppercase());
+arr.forEach(val , idx, arr) => {
+    console.log(val.touppercase(), idx);
 }
