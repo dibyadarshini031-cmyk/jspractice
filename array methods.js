@@ -1,14 +1,14 @@
 //let arr = ["pune", "delhi", "mumbai"];
 
 //arr.forEach((val , idx, arr) => {
-    //console.log(val.touppercase(), idx);
+   // console.log(val.touppercase(), idx);
 //});
 
 
 //let nums = [2,3,4,5,6];
 
 //nums.forEach((num) => {
-   // console.log(num * num); //num**2
+    //console.log(num * num); //num**2
 //});
 
 
@@ -22,41 +22,41 @@
 
 
 
-//let nums= [67,78,39];
+let nums= [67,78,39];
 
-//let newArr = nums.map((val) => {
-    //return val * 2;
-//});
- //console.log(newArr);
+let newArr = nums.map((val) => {
+    return val * 2;
+});
+ console.log(newArr);
 
- //let calcSquare = (num) => {
-    //console.log(num * num);
- //};
+ let calcSquare = (num) => {
+    console.log(num * num);
+ };
 
 
 
- //let arr = [3,9,5,8];
+ let array = [3,9,5,8];
 
- //const output = arr.reduce((res, curr) => {
-    //return res + curr;
+ const output = array.reduce((res, curr) => {
+    return res + curr;
     // put prev in instead of res
     //for largest num 
     //return prev > curr ? prev : curr;
     //smallest
     // return prev < curr ? prev : curr;
- //});
- //console.log(output);
+ });
+ console.log(output);
 
 
 //practice
  //we are given array of marks of students. Filter out of the mark of students that scored 90+.
 
- //let marks = [97,86,99,76,56,94,55,92,34];
+ let marks = [97,86,99,76,56,94,55,92,34];
 
- //let toppers = marks.filter((val) => {
-   // return val > 90;
- //});
- //console.log(toppers);
+ let toppers = marks.filter((val) => {
+    return val > 90;
+ });
+ console.log(toppers);
 
 
  //take a number as input from user. create an array of numbers from 1 to n.
