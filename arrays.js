@@ -1,13 +1,14 @@
-//let numbers = [10, 20, 30, 40, 50];
-//let sum = 0;
+let numbers = [10, 20, 30, 40, 50];
+let sum = 0;
 
-//for (let i = 0; i < numbers.length; i++) {
-//    sum += numbers[i];
-//}
+for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+}
 
-//console.log("Sum =", sum);
+console.log("Sum =", sum);
 
 
+//another example
 let student = [
     { name: "Lipsha", age: 21},
     { name: "Bhumi", age: 22},
