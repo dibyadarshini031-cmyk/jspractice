@@ -85,8 +85,8 @@
 // };5
 
 
-// let promise = getPromise();
-// promise.then(() => {
+//  let promise = getPromise();
+//  promise.then(() => {
 //     console.log("promise fulfilled");
 // });
 
@@ -107,27 +107,81 @@
 
 
 
-function asyncFunc1() {
-    return new Promise ((resolve, reject) => {
-        setTimeout(() => {
-            console.log("some data1");
-            resolve("success");
-        }, 4000);
-    })
+//   promise chain
+
+// function asyncFunc1() {
+//     return new Promise ((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("some data1");
+//             resolve("success");
+//         }, 4000);
+//     })
+// }
+// function asyncFunc2() {
+//     return new Promise ((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("some data2");
+//             resolve("success");
+//         }, 4000);
+//     })
+// }
+
+// console.log("fetching data1....");
+// asyncFunc1().then((res) => {
+//     console.log("fetching data2....");
+//     asyncFunc2().then((res) => {});
+// })
+
+
+
+
+//    async-await
+
+//async function hello() {
+//    console.log("hello");
+//}
+
+//  function api() {
+//      return new promise((resolve, reject) => {
+//          setTimeout(() => {
+//            console.log("weather data");
+//            resolve(200);
+//         }, 2000);
+//     });
+// }
+// async function getWeatherData() {
+//     await api(); //1st
+//     await api(); //2nd
+// }
+
+function getData(dataId) {
+     return new Promise((resolve, reject) => {
+       setTimeout(() => {
+         console.log("data", dataId);
+         resolve("success");   
+       }, 2000);
+    });
 }
-function asyncFunc2() {
-    return new Promise ((resolve, reject) => {
-        setTimeout(() => {
-            console.log("some data2");
-            resolve("success");
-        }, 4000);
-    })
+//Async-await
+async function getAllData() {
+    console.log("getting data1....");
+    await getData(1);
+    console.log("getting data2....");
+    await getData(2);
+    console.log("getting data3....");
+    await getData(3);
+    
 }
 
-console.log("fetching data1....");
-asyncFunc1().then((res) => {
-    console.log("fetching data2....");
-    asyncFunc2().then((res) => {});
-})
-
+//  IIFE
+(async function () {
+    console.log("getting data1....");
+    await getData(1);
+    console.log("getting data2....");
+    await getData(2);
+    console.log("getting data3....");
+    await getData(3);
+    console.log("getting data4....");
+    await getData(4);
+})();
 
