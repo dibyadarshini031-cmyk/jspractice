@@ -1,0 +1,12 @@
+.heading {
+    color:black;
+    background-color:antiquewhite;
+}
+body {
+    background-color:rgb(139, 0, 63);
+}
+
+button {
+    background-color:cornflowerblue;
+    color:blue;
+}
