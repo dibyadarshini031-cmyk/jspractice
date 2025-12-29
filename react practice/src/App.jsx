@@ -62,4 +62,69 @@
 // export default App
 
 
-/
+// function App() {
+//     function callFun() {
+//         alert("function called")
+//     }
+
+
+//     const fruit = (name) => {
+//         alert(name)
+//     }
+
+
+//     return (
+//         <div>
+//             <h1>Event and function call</h1>
+//             <button onClick={() => fruit("apple")}>Apple</button>
+//             <button onClick={() => fruit("Banana")}>Banana</button>
+//         </div>
+//     )
+// }
+
+// export default App
+
+
+
+//using of state
+
+
+// import { useState } from "react";
+// function App() {
+//     const [fruit, setFruit] = useState("Apple");
+//     const handleFruit = () => {
+//         setFruit("Banana")
+
+
+//     }
+
+//     return (
+//         <div>
+//             <h1>State in React JS</h1>
+//             <h1>{fruit}</h1>
+//             <button onClick={handleFruit} >change Fruit Name</button>
+
+
+//         </div>
+//     )
+// }
+
+// export default App
+
+import { UseState } from "react";
+
+const Counter = () => {
+    const [count, setCount] = UseState(0);
+    const [rCounter,setRCounter]= UseState(10)
+
+    return (
+        <div>
+            <h1>Counter:{count}</h1>
+            <h2>R counter: {rCounter}</h2>
+            <button onClick={() => setCount(count + 1)}>Update Counter</button>
+            <button onClick={() => setRCounter(rcounter - 1)}>Update  R Counter</button>
+        </div>
+    )
+}
+
+export default Counter;
