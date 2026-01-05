@@ -131,23 +131,71 @@
 
 
 
-import { useState } from "react"
-function App() {
-    const [count,setCount]=useState(0);
+
+
+//using of multiple conditions
+// import { useState } from "react"
+// function App() {
+//     const [count,setCount]=useState(0);
+//     return (
+//         <div>
+//             <h1>{count}</h1>
+//             <button onClick={()=>setCount(count+1)}>Counter</button>
+//             {
+//                 count==0?<h1>Condition 0</h1>
+//                 :count==1?<h1>Condition 1</h1>
+//                 :count==2?<h1>Condition 2</h1>
+//                 :count==3?<h1>Condition 3</h1>
+//                 :count==4?<h1>Condition 4</h1>
+//                 :<h1>Other condition</h1>
+//             }
+//         </div>
+//     )
+// }
+
+// export default App
+
+
+
+import User from "./User"
+
+
+  function App() {
+    //let userName="Lipsha";
+    //let age=21;
+    //let email="dibayadarshini031@gmail.com"
+    let userObject={
+        name:"Lipsha",
+        age:"21",
+        email:"dibyadarshini031@gmail.com"
+    
+    }
+
+    let userObject2={
+        name:"Bhumi",
+        age:"21",
+        email:"bhumi@gmail.com"
+    
+    }
+
+    let userObject3={
+        name:"Lipi",
+        age:"21",
+        email:"lipi@gmail.com"
+    
+    }
     return (
         <div>
-            <h1>{count}</h1>
-            <button onClick={()=>setCount(count+1)}>Counter</button>
-            {
-                count==0?<h1>Condition 0</h1>
-                :count==1?<h1>Condition 1</h1>
-                :count==2?<h1>Condition 2</h1>
-                :count==3?<h1>Condition 3</h1>
-                :count==4?<h1>Condition 4</h1>
-                :<h1>Other condition</h1>
-            }
-        </div>
-    )
-}
+            <h1>Props in React js</h1>
 
-export default App
+            {/* <User name={userName} age=(age) email={email}/> */}
+            <User user={userObject}/>
+            <User user={userObject2}/>
+             <User user={userObject3}/>
+            
+             </div>
+    )
+  }
+
+  export default App
+

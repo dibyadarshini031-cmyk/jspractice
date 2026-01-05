@@ -79,43 +79,71 @@
 // export default App
 
 
-function App() {
-    const name="Lipsha"
-    let x=10;
-    let y=20;
-    function Fruit(){
-        return "Apple"
-    }
-    function Sum(a,b) {
-        return a+b 
-    }
-    function Operation(a,b,Op){
+// function App() {
+//     const name="Lipsha"
+//     let x=10;
+//     let y=20;
+//     function Fruit(){
+//         return "Apple"
+//     }
+//     function Sum(a,b) {
+//         return a+b 
+//     }
+//     function Operation(a,b,Op){
         
-        if(Op=="+"){
-            return a+b;
-        }else if(Op=="-"){
-            return a-b;
-        }else{
-            return a*b
-        }
-    }
-    return (
-        <div>
-            <h1>JSX withn curly braces</h1>
-            <h1>{name}</h1>
-            <h1>{x+y}</h1>
-            <h1>{Fruit()}</h1>
-            <h1>{Sum(10,100)}</h1>
-            <h1>{Operation(20,10,"")}</h1>
-        </div>
-    )
-}
+//         if(Op=="+"){
+//             return a+b;
+//         }else if(Op=="-"){
+//             return a-b;
+//         }else{
+//             return a*b
+//         }
+//     }
+//     return (
+//         <div>
+//             <h1>JSX withn curly braces</h1>
+//             <h1>{name}</h1>
+//             <h1>{x+y}</h1>
+//             <h1>{Fruit()}</h1>
+//             <h1>{Sum(10,100)}</h1>
+//             <h1>{Operation(20,10,"")}</h1>
+//         </div>
+//     )
+// }
 
-export default App
+// export default App
 
 // if name is not given or name is undefined then we can add
   //<h1>(name?name:"user not found")</h1>
   //output will be user not found
+
+
+
+  import User from "./user"
+
+
+  function App() {
+    //let userName="Lipsha";
+    //let age=21;
+    //let email="dibayadarshini031@gmail.com"
+    let userObject={
+        name:"Lipsha",
+        age:"21",
+        email:"dibyadarshini031@gmail.com"
+    
+    }
+    return (
+        <div>
+            <h1>Props in React js</h1>
+
+            {/* <User name={userName} age=(age) email={email}/> */}
+            <User user={userObject}/>
+            <User user={userObject}/>
+        </div>
+    )
+  }
+
+  export default App
 
 
 
