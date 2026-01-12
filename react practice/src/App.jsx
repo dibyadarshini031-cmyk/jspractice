@@ -157,45 +157,84 @@
 
 
 
-import User from "./User"
+// import User from "./User"
 
 
-  function App() {
-    //let userName="Lipsha";
-    //let age=21;
-    //let email="dibayadarshini031@gmail.com"
-    let userObject={
-        name:"Lipsha",
-        age:"21",
-        email:"dibyadarshini031@gmail.com"
+//   function App() {
+//     //let userName="Lipsha";
+//     //let age=21;
+//     //let email="dibayadarshini031@gmail.com"
+//     let userObject={
+//         name:"Lipsha",
+//         age:"21",
+//         email:"dibyadarshini031@gmail.com"
     
-    }
+//     }
 
-    let userObject2={
-        name:"Bhumi",
-        age:"21",
-        email:"bhumi@gmail.com"
+//     let userObject2={
+//         name:"Bhumi",
+//         age:"21",
+//         email:"bhumi@gmail.com"
     
-    }
+//     }
 
-    let userObject3={
-        name:"Lipi",
-        age:"21",
-        email:"lipi@gmail.com"
+//     let userObject3={
+//         name:"Lipi",
+//         age:"21",
+//         email:"lipi@gmail.com"
     
-    }
-    return (
-        <div>
-            <h1>Props in React js</h1>
+//     }
+//     return (
+//         <div>
+//             <h1>Props in React js</h1>
 
-            {/* <User name={userName} age=(age) email={email}/> */}
-            <User user={userObject}/>
-            <User user={userObject2}/>
-             <User user={userObject3}/>
+//             {/* <User name={userName} age=(age) email={email}/> */}
+//             <User user={userObject}/>
+//             <User user={userObject2}/>
+//              <User user={userObject3}/>
             
-             </div>
+//              </div>
+//     )
+//   }
+
+//   export default App
+
+
+
+
+
+//controlled component
+
+
+import { useState } from "react";
+ 
+function App() {
+   const [name,setName]=useState('');
+   const [password,setPassword]=useState('');
+   const [email,setEmail]=useState('');
+
+    return(
+        <div>
+            <h1>Controller Component</h1>
+            {/*<form action="" method="get"> */>}
+                <input type="text" onChange={(event)=>setName(event.target.value)} placeholder="Enter Name" />
+                <br /><br />
+                <input type="password" onChange={(event)=>setPassword(event.target.value)} placeholder="Enter password" />
+                <br/><br/>
+                <input type="text" onChange={(event)=>setEmail(event.target.value)} placeholder="Enter email" />
+                <br/><br/>
+                <button>Submit</button>
+
+
+                <button onClick={()=>{setEmail('');setName('');setPassword('')}}> clear</button>
+
+
+
+
+                <h3>{name}</h3>
+                <h3>{password}</h3>
+                <h3>{email}</h3>
+            {/*</form> */}    
+        </div>
     )
-  }
-
-  export default App
-
+}
