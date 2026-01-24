@@ -1,4 +1,7 @@
-import User1 from "./User1"
+/// 24.01.2025
+
+
+import User1 from "./user1"
 
 
 function App1() {
@@ -51,3 +54,10 @@ return (
 }
 
 export default App1
+
+
+//this will import data from User1 and displays the above user data
+
+// react repeats UI using .map()
+//.map() works only on arrays
+//each item -> one component

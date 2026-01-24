@@ -1,0 +1,30 @@
+// 24.01.2025
+
+
+const User1 = ({ data }) => {
+    return (
+        <div style={{
+            border: "1px solid green",
+            padding: "10px",
+            margin: "10px",
+            width: "400px",
+            borderradius: "10px",
+        }}
+        >
+            <h3>
+                Name: <span style={{ color: 'green' }}>{data.name}</span>
+            </h3>
+            <h3>
+                Age: <span style={{ color: 'green' }}>{data.age}</span>
+            </h3>
+            <h3>
+                Email: <span style={{ color: 'green' }}>{data.email}</span>
+            </h3>
+        </div>
+    );
+};
+
+export default User1;
+
+// style are objects, not strings
+//it uses only camelcase
