@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Melo Online Quiz</title>
+  <link rel="stylesheet" href="quiz.css" />
+</head>
+<body class="dark">
+
+<header>
+    <div class="logo">🌐 Melo Online Quiz</div>
+  
+  <div class="controls">
+    <button id="modeToggle" class="icon-btn" title="Toggle theme">🌙</button>
+    <button id="soundToggle" class="icon-btn" tittle="Toggle sound">🔊</button>
+  </div>
+</header>
+
+<!-- HOME -->
+<section id="home" class="card">
+  <h2>Test Your Knowledge</h2>
+
+  <h5 class="desc">
+    This quiz is your ticket to becoming a know-it-all genius 🤓! 
+    Test your skills, learn new facts, and have a blast !!! 😊
+    All The Best!!
+  </h5>
+
+  <label>Enter your name</label>
+  <input type="text" id="username" placeholder="Your name" />
+
+  <label>Pick a topic</label>
+  <select id="category">
+    <option value="">Select Topic</option>
+    <option value="aptitude">Aptitude</option>
+    <option value="verbal">Verbal Ability</option>
+    <option value="technical">Technical</option>
+    <option value="gk">General Knowledge</option>
+  </select>
+
+  <button id="startBtn">Start Quiz</button>
+
+  
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="card hidden">
+  <div class="top">
+    <span id="timer">10s</span>
+    <span id="count">1 / 5</span>
+  </div>
+
+  <div class="bar">
+    <div id="progress"></div>
+  </div>
+
+  <h3 id="question"></h3>
+  <div id="options"></div>
+
+  <div class="actions">
+    <button id="skipBtn" class="btn btn-skip">Skip</button>
+    <button id="nextBtn" class="btn btn-next">Next</button>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section id="result" class="card hidden">
+  <h2>Quiz Completed!</h2>
+  <div class="circle">
+    <span id="scorePercent">0%</span>
+  </div>
+  <p id="message"></p>
+  <button id="backHomeBtn" class="btn btn-home">Back Home</button>
+</section>
+
+ <!-- <audio id="correctSound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"></audio>
+<audio id="wrongSound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3"></audio>
+<audio id="timeSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alert-bells-echo-765.mp3"></audio> -->
+
+<audio id="clickSound" src="sounds/click.mp3.mp3"></audio>
+<audio id="correctSound" src="sounds/correct.mp3.mp3"></audio>
+<audio id="wrongSound" src="sounds/wrong.mp3.mp3"></audio>
+<audio id="timerSound" src="sounds/timer.mp3.mp3"></audio>
+
+<script src="quiz.js"></script>
+</body>
+</html>
