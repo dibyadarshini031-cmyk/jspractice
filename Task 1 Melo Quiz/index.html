@@ -12,7 +12,7 @@
     <div class="logo">🌐 Melo Online Quiz</div>
   
   <div class="controls">
-    <button id="modeToggle" class="icon-btn" title="Toggle theme">🌙</button>
+    <button id="modeToggle" class="icon-btn" aria-label="Toggle theme">🌙</button>
     <button id="soundToggle" class="icon-btn" tittle="Toggle sound">🔊</button>
   </div>
 </header>
@@ -39,7 +39,7 @@
     <option value="gk">General Knowledge</option>
   </select>
 
-  <button id="startBtn">Start Quiz</button>
+  <button id="startBtn">Start Quiz 🚀</button>
 
   
 </section>
@@ -64,19 +64,25 @@
   </div>
 </section>
 
+
 <!-- RESULT -->
 <section id="result" class="card hidden">
   <h2>Quiz Completed!</h2>
   <div class="circle">
     <span id="scorePercent">0%</span>
   </div>
+  
+
   <p id="message"></p>
+  <button id="leaderboardBtn" class="primary-btn">🏆 Leaderboard</button>
+  <div id="leaderboard" class="leaderboard-box hidden"></div>
+
+  <div id="leaderboardContainer"></div>
+
+  
   <button id="backHomeBtn" class="btn btn-home">Back Home</button>
 </section>
 
- <!-- <audio id="correctSound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"></audio>
-<audio id="wrongSound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3"></audio>
-<audio id="timeSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alert-bells-echo-765.mp3"></audio> -->
 
 <audio id="clickSound" src="sounds/click.mp3.mp3"></audio>
 <audio id="correctSound" src="sounds/correct.mp3.mp3"></audio>
