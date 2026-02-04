@@ -84,25 +84,6 @@ gk: [
 
 
 
-// function saveToLeaderboard(name, category, score) {
-//   let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || {};
-
-//   if (!leaderboard[category]) {
-//     leaderboard[category] = [];
-//   }
-
-//   leaderboard[category].push({
-//     name: name,
-//     score: score,
-//     time: new Date().toLocaleString()
-//   });
-
-//   // sort high → low
-//   leaderboard[category].sort((a, b) => b.score - a.score);
-
-//   localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
-// }
-
 
 document.addEventListener("DOMContentLoaded", () => {
   setPage("home");
@@ -327,62 +308,7 @@ saveToLeaderboard(usernameInput.value.trim(),categorySelect.value,percent);
 
 }
 
-// function saveToLeaderboard(name, category, score) {
-//   let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || {};
 
-//   if (!leaderboard[category]) {
-//     leaderboard[category] = [];
-//   }
-
-//   // 🔍 Check if user already exists
-//   const existing = leaderboard[category].find(
-//     entry => entry.name === name
-//   );
-
-//   if (existing) {
-//     // update only if new score is better
-//     if (score > existing.score) {
-//       existing.score = score;
-//       existing.time = new Date().toLocaleString();
-//     }
-//   } else {
-//     leaderboard[category].push({
-//       name,
-//       score,
-//       time: new Date().toLocaleString()
-//     });
-//   }
-
-//   // sort high → low
-//   leaderboard[category].sort((a, b) => b.score - a.score);
-
-//   localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
-// }
-
-
-// function loadLeaderboard() {
-//   const board = document.getElementById("leaderboard");
-//   const category = categorySelect.value;
-
-//   let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || {};
-
-//   board.classList.remove("hidden");
-//   board.innerHTML = "";
-
-//   if (!leaderboard[category] || leaderboard[category].length === 0) {
-//     board.innerHTML = "<p>No scores yet</p>";
-//     return;
-//   }
-
-//   let html = `<h3>${category.toUpperCase()} LEADERBOARD</h3><ul>`;
-
-//   leaderboard[category].forEach((entry, index) => {
-//     html += `<li>${index + 1}. ${entry.name} — ${entry.score}%</li>`;
-//   });
-
-//   html += "</ul>";
-//   board.innerHTML = html;
-// }
 
 
 function saveToLeaderboard(name, category, score) {
@@ -392,16 +318,23 @@ function saveToLeaderboard(name, category, score) {
     leaderboard[category] = [];
   }
 
-  const existing = leaderboard[category].find(
-    entry => entry.name === name
-  );
+  // const existing = leaderboard[category].find(
+  //   entry => entry.name === name
+  // );
 
-  if (existing) {
-    if (score > existing.score) {
-      existing.score = score;
-      existing.time = new Date().toLocaleString();
-    }
-  } else {
+  // if (existing) {
+  //   if (score > existing.score) {
+  //     existing.score = score;
+  //     existing.time = new Date().toLocaleString();
+  //   }
+  // } else {
+  //   leaderboard[category].push({
+  //     name,
+  //     score,
+  //     time: new Date().toLocaleString()
+  //   });
+
+
     leaderboard[category].push({
       name,
       score,
@@ -412,7 +345,7 @@ function saveToLeaderboard(name, category, score) {
   leaderboard[category].sort((a, b) => b.score - a.score);
 
   localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
-}
+
 
 function loadLeaderboard() {
   const container = document.getElementById("leaderboardContainer");
