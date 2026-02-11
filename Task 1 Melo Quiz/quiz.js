@@ -1,4 +1,8 @@
-// ELEMENT REFERENCES
+
+
+let correctCount=0;
+let wrongCount=0;
+let unattemptedCount=0;
 
 const home = document.getElementById("home");
 const quiz = document.getElementById("quiz");
@@ -92,6 +96,8 @@ document.addEventListener("DOMContentLoaded", () => {
 const leaderboardBtn = document.getElementById("leaderboardBtn");
 
 leaderboardBtn.addEventListener("click", () => {
+  result.classList.add("hidden");
+  leaderboard.classList.remove("hidden");
   loadLeaderboard();
 });
 
@@ -130,6 +136,10 @@ play(clickSound);
 
 current = 0;
 score = 0;
+
+correctCount=0;
+wrongCount=0;
+unattemptedCount=0;
 
 home.classList.add("hidden");
 quiz.classList.remove("hidden");
@@ -229,9 +239,11 @@ if (opt.textContent === correct) {
 if (choice === correct) {
 btn.classList.add("correct");
 score++;
+correctCount++;
 if (soundOn) play(correctSound);
 } else {
 btn.classList.add("wrong");
+wrongCount++;
 if (soundOn) play(wrongSound);
 }
 
@@ -243,6 +255,7 @@ nextBtn.style.opacity = "1";
 
 function revealCorrectAnswer() {
 answered = true;
+unattemptedCount++;
 
 const correct = questions[categorySelect.value][current].a;
 
@@ -266,6 +279,8 @@ skipBtn.onclick = () => {
 
 play(clickSound);
 clearInterval(timer);
+
+unattemptedCount++;
 current++;
 
 if (current < 5) loadQuestion();
@@ -287,6 +302,14 @@ clickSound.play().catch(()=> {});
 //  RESULT
 
 function showResult() {
+
+
+  document.getElementById("correctCount").textContent = correctCount;
+document.getElementById("wrongCount").textContent = wrongCount;
+document.getElementById("unattemptedCount").textContent = unattemptedCount;
+
+
+
 quiz.classList.add("hidden");
 result.classList.remove("hidden");
 
@@ -309,79 +332,61 @@ saveToLeaderboard(usernameInput.value.trim(),categorySelect.value,percent);
 }
 
 
+function saveToLeaderboard(username, category, score) {
 
-
-function saveToLeaderboard(name, category, score) {
-  let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || {};
+  let leaderboard =
+    JSON.parse(localStorage.getItem("leaderboard")) || {};
 
   if (!leaderboard[category]) {
     leaderboard[category] = [];
   }
 
-  // const existing = leaderboard[category].find(
-  //   entry => entry.name === name
-  // );
+  leaderboard[category].push({
+    name:username,
+    score:score,
+    //time: new Date().toLocaleString()
+  });
 
-  // if (existing) {
-  //   if (score > existing.score) {
-  //     existing.score = score;
-  //     existing.time = new Date().toLocaleString();
-  //   }
-  // } else {
-  //   leaderboard[category].push({
-  //     name,
-  //     score,
-  //     time: new Date().toLocaleString()
-  //   });
-
-
-    leaderboard[category].push({
-      name,
-      score,
-      time: new Date().toLocaleString()
-    });
-  }
-
-  leaderboard[category].sort((a, b) => b.score - a.score);
-
-  localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+  localStorage.setItem(
+    "leaderboard",
+    JSON.stringify(leaderboard)
+  );
+}
 
 
 function loadLeaderboard() {
-  const container = document.getElementById("leaderboardContainer");
-  const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || {};
+  const leaderboardDiv = document.getElementById("leaderboard");
+  const data = JSON.parse(localStorage.getItem("leaderboard")) || {};
 
-  container.innerHTML = "";
+  leaderboardDiv.innerHTML = "";
 
-  if (Object.keys(leaderboard).length === 0) {
-    container.innerHTML = "<p>No scores yet</p>";
+  if (Object.keys(data).length === 0) {
+    leaderboardDiv.innerHTML = "<p>No attempts yet</p>";
     return;
   }
 
-  Object.keys(leaderboard).forEach(category => {
-    let html = `
-      <div class="leaderboard-card">
-        <h3>${category.toUpperCase()}</h3>
-        <ul>
-    `;
+  Object.keys(data).forEach(category => {
+    const card = document.createElement("div");
+    card.className = "leaderboard-card";
 
-    leaderboard[category].forEach((entry, index) => {
-      html += `<li>${index + 1}. ${entry.name} — ${entry.score}%</li>`;
+    const title = document.createElement("h3");
+    title.textContent = category.toUpperCase();
+
+    card.appendChild(title);
+
+    data[category].forEach((entry, index) => {
+      const row = document.createElement("div");
+      row.className = "leaderboard-item";
+      row.textContent = `${index + 1}. ${entry.name} — ${entry.score}%`;
+      card.appendChild(row);
     });
 
-    html += `
-        </ul>
-      </div>
-    `;
-
-    container.innerHTML += html;
+    leaderboardDiv.appendChild(card);
   });
 }
 
 
 // Toggle
-
-
 
 
 const modeToggle = document.getElementById("modeToggle");
@@ -434,7 +439,7 @@ soundOn ? "🔊" : "🔇";
 
 
 // stop all sounds instantly when muted
-[clickSound, correctSound, wrongSound, timeSound].forEach(s => {
+[clickSound, correctSound, wrongSound, timerSound].forEach(s => {
 if (s) {
 s.pause();
 s.currentTime = 0;
@@ -445,3 +450,14 @@ s.currentTime = 0;
 // 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+
+  const leaderboardBtn = document.getElementById("leaderboardBtn");
+  const resultSection = document.getElementById("result");
+
+  leaderboardBtn.addEventListener("click", () => {
+    resultSection.classList.remove("hidden");
+    loadLeaderboard();
+  });
+
+});
