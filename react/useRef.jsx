@@ -4,7 +4,7 @@
 
 import React, { useRef } from "react";
 
-function App() {
+function useRef() {
   const inputRef = useRef(null);
 
   const focusInput = () => {
@@ -30,7 +30,7 @@ function App() {
   );
 }
 
-export default App;
+export default useRef;
 
 
 

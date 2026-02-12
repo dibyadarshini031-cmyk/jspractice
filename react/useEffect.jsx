@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect } from "react";
 
-function App() {
+function useEffect() {
   const [time, setTime] = useState(0);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function App() {
   );
 }
 
-export default App;
+export default useEffect;
 
 
 //set interval runs every 2 second 
